@@ -1,58 +1,62 @@
 import java.util.Scanner;
-class OblineShoppingPortal{
-Scanner s=new Scanner(System.in);
-Prime p=new Prime();
-double amt,tot;
-int t;
-String b="GET10",g;
+class OnlineShoppingPortal{
+    Scanner s=new Scanner(System.in);
+    double amt,tot;
+    int t;
+    String b="GET10";
+    String g;
 
-void setdata(){
-System.out.println("Enter 0 for prime and 1 for regular"); 
-t=s.nextInt();
-System.out.println("Enter the the checkout amount");
-amt=s.nextDouble();
-System.out.println("Enter promo code");
-g=s.nextLine();
+    void setdata(){
+        System.out.println("Enter 0 for prime and 1 for regular");
+        t=s.nextInt();
+        System.out.println("Enter the the checkout amount");
+        amt=s.nextDouble();
+        System.out.println("Enter promo code");
+        g=s.next();
 
-} 
-void fun()
-{
-if(t==0)  
-{
-Checkout(amt);
-}
-else if(t==1)
-{
-Checkout(amt,g);
-}
-}
- Double Checkout(Double v){
-{if(v>1000)
-{tot=0.3*v;
-}
-else
-{tot=0.2*v;
-}
-return tot;
-}
-}
+    }
+    void fun()
+    {
+        if(t==0)
+        {
+            this.Checkout(amt);
+        }
+        else if(t==1)
+        {
+            Checkout(amt,g);
+        }
+    }
+    double Checkout(Double v){
+        {if(v>1000)
+        {tot=0.3*v;
+            System.out.println("Total bill amount is "+tot);
+        }
+        else
+        {tot=0.2*v;
+        }
+            return tot;
+        }
+    }
 
- Double Checkout(Double x,String u)
-{if(x<500)
-{tot=x-10;
-}
+    Double Checkout(Double x,String u)
+    {if(x<500)
+    {tot=x-10;
+        System.out.println("Total bill amount is "+tot);
+    }
 
-else if(u==b)
-{tot=0.1*x;
-}
+    else if(u==b)
+    {tot=0.1*x;
+        System.out.println("Total bill amount is "+tot);
+    }
 
-return tot;
+        return tot;
+    }
 }
-}
-class Main{
-public static void main(String[] args){
-OnlineShoppingPortal o =new OnlineShoppingPortal();
-o.setdata();
-o.fun();
-System.out.println("Total bill amount is "+tot);
+class Main {
+    public static void main(String[] args) {
+        OnlineShoppingPortal o = new OnlineShoppingPortal();
+        o.setdata();
+        o.fun();
+
+    }
 }
