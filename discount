@@ -1,58 +1,73 @@
-import java.util.Scanner;
-class OnlineShoppingPortal{
-    Scanner s=new Scanner(System.in);
-    double amt,tot;
+
+import java.util*;
+class OnlineShoppingPortal
+{
+    Scanner s = new Scanner(System.in);
+    double amt, tot;
     int t;
-    String b="GET10";
     String g;
 
-    void setdata(){
+    void setdata() {
         System.out.println("Enter 0 for prime and 1 for regular");
-        t=s.nextInt();
+        t = s.nextInt();
         System.out.println("Enter the the checkout amount");
-        amt=s.nextDouble();
+        amt = s.nextDouble();
         System.out.println("Enter promo code");
-        g=s.next();
+        g = s.next();
 
     }
+
     void fun()
     {
-        if(t==0)
+        if (t == 0)
         {
-            this.Checkout(amt);
+
+            Checkout(amt);
         }
-        else if(t==1)
+        else if (t == 1)
         {
-            Checkout(amt,g);
+            Checkout(amt, g);
         }
     }
-    double Checkout(Double v){
-        {if(v>1000)
-        {tot=0.3*v;
-            System.out.println("Total bill amount is "+tot);
+
+    double Checkout(Double v)
+    {
+
+            if (v > 1000)
+            {
+                tot = 0.3 * v;
+                System.out.println("Total bill amount is " + tot);
+            }
+            else
+            {
+                tot = 0.2 * v;
+            }
+            return tot;
+
+    }
+
+    Double Checkout(Double x, String u)
+    {
+        if (x < 500)
+        {    System.out.println("Total bill amount is ");
+            tot = x - 10;
+            System.out.println("Total bill amount is " + tot);
+        }
+        else if (u == "GET10" && x>500)
+        {
+            tot = 0.1 * x;
+            System.out.println("Total bill amount is " + tot);
         }
         else
-        {tot=0.2*v;
+        {
+            System.out.println("Invalid Output");
         }
-            return tot;
-        }
-    }
-
-    Double Checkout(Double x,String u)
-    {if(x<500)
-    {tot=x-10;
-        System.out.println("Total bill amount is "+tot);
-    }
-
-    else if(u==b)
-    {tot=0.1*x;
-        System.out.println("Total bill amount is "+tot);
-    }
-
         return tot;
     }
 }
-class Main {
+
+class Main
+{
     public static void main(String[] args) {
         OnlineShoppingPortal o = new OnlineShoppingPortal();
         o.setdata();
