@@ -1,0 +1,96 @@
+import java.util.Scanner;
+class Time
+{
+int hrs,mins;
+Scanner s=new Scanner (System.in);
+void setdata()
+{
+System.out.println("Enter  hours and minutes ");
+hrs=s.nextInt();
+mins=s.nextInt();
+}
+
+void add (Time o1,Time o2)
+{
+this.hrs=o1.hrs+o2.hrs;
+this.mins=o1.mins+o2.mins;
+if(this.mins>60)
+{
+this.mins=this.mins-60;
+this.hrs=this.hrs+1;
+}
+System.out.println(" Addition ="+this.hrs+":"+this.mins);
+}
+
+void subtract (Time o1,Time o2)
+{ 
+if(o1.hrs>o2.hrs) 
+{this.hrs=o1.hrs-o2.hrs;
+}
+else
+{this.hrs=o2.hrs-o1.hrs;
+}
+if (o1.mins>o2.mins)
+{this.mins=o1.mins-o2.mins;
+}
+else
+{this.mins=o2.mins-o1.mins;
+}
+System.out.println(" Subtraction ="+this.hrs+":"+this.mins);
+}
+}
+class GreatClock extends Time 
+{
+int sec ,msec,flag=0;
+void setdata()
+{System.out.println("Enter  secomds and miliseconds ");
+sec=s.nextInt();
+msec=s.nextInt();
+super.setdata();
+}
+void add (GreatClock o1,GreatClock o2)
+{
+this.sec=o1.sec+o2.sec;
+this.msec=o1.msec+o2.msec;
+}
+if(msec>1000)
+{this.msec=this.msec-1000;
+this.sec=this.sec+1;
+}
+if(this.sec>=60)
+{this.sec=this.sec-60;
+flag=1;
+}
+Time d1=new Time(g1.hrs,g1.mins);
+Time d2=new Time(
+}
+
+System.out.println(" Addition ="+this.hrs+":"+this.mins":"+this.sec+":"+this.msec);
+}
+}
+
+
+
+class Main
+{
+public static void main (String args[])
+{Time t1=new Time ();
+Time t2=new Time();
+GreatClock g1=new GreatClock();
+GreatClock g2=new GreatClock();
+GreatClock g=new GreatClock();
+Time a=new Time();
+Time sub=new Time();
+t1.setdata();
+t2.setdata();
+a.add(t1,t2);
+sub.subtract(t1,t2);
+g1.setdata();
+g2.setdata();
+
+g.add(g1,g2);
+
+}
+}
+
+
