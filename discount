@@ -1,5 +1,4 @@
-
-import java.util*;
+import java.util.Scanner;
 class OnlineShoppingPortal
 {
     Scanner s = new Scanner(System.in);
@@ -33,16 +32,16 @@ class OnlineShoppingPortal
     double Checkout(Double v)
     {
 
-            if (v > 1000)
-            {
-                tot = 0.3 * v;
-                System.out.println("Total bill amount is " + tot);
-            }
-            else
-            {
-                tot = 0.2 * v;
-            }
-            return tot;
+        if (v > 1000)
+        {
+            tot = amt-0.3 * v;
+
+        }
+        else
+        {
+            tot = amt-0.2 * v;
+        }
+        return tot;
 
     }
 
@@ -51,12 +50,12 @@ class OnlineShoppingPortal
         if (x < 500)
         {    System.out.println("Total bill amount is ");
             tot = x - 10;
-            System.out.println("Total bill amount is " + tot);
+
         }
-        else if (u == "GET10" && x>500)
+        else if ((u.equals("GET10"))  && x>500)
         {
-            tot = 0.1 * x;
-            System.out.println("Total bill amount is " + tot);
+            tot = amt-0.1 * x;
+
         }
         else
         {
@@ -64,6 +63,11 @@ class OnlineShoppingPortal
         }
         return tot;
     }
+     void display()
+     {
+         System.out.println("Original amount="+amt);
+         System.out.println("With Discount total amt="+tot);
+     }
 }
 
 class Main
@@ -72,6 +76,7 @@ class Main
         OnlineShoppingPortal o = new OnlineShoppingPortal();
         o.setdata();
         o.fun();
+        o.display();
 
     }
 }
