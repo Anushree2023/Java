@@ -1,0 +1,44 @@
+import java.util.Scanner;
+class Complex
+{
+    double real,imaginery;
+    Scanner s=new Scanner(System.in);
+    void setdata()
+    {
+        System.out.println("Enter real part");
+       real= s.nextDouble();
+        System.out.println("Enter imaginery part");
+        imaginery= s.nextDouble();
+    }
+
+
+    void add(Complex c1,Complex c2)
+    {
+        Complex c3=new Complex();
+        c3.real=c1.real+c2.real;
+        c3.imaginery=c1.imaginery+c2.imaginery;
+        System.out.println("SUM ="+c3.real+"+"+c3.imaginery+"i");
+    }
+
+    void multiply(Complex c1,Complex c2)
+    {
+        Complex c4=new Complex();
+        c4.real=((c1.real)*(c2.real))-((c1.imaginery)*(c2.imaginery));
+        c4.imaginery=((c1.imaginery)*(c2.real))+((c1.real)*(c2.imaginery));
+        System.out.println("MULTIPLICATION ="+c4.real+"+"+c4.imaginery+"i");
+    }
+}
+class main
+{
+    public static void main(String[] args)
+    {
+        Complex c1=new Complex();
+        Complex c2=new Complex();
+        Complex a=new Complex();
+        Complex m=new Complex();
+        c1.setdata();
+        c2.setdata();
+        a.add(c1,c2);
+        m.multiply(c1,c2);
+    }
+}
