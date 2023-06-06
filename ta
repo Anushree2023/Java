@@ -1,0 +1,225 @@
+import java.util.*;
+class Product {
+    Scanner s = new Scanner(System.in);
+    int price, quantity, total;
+    String name, description, productid;
+
+
+
+    void getDescription() {
+
+        System.out.println("Enter the name of the product");
+        name = s.next();
+        System.out.println("Enter the id of the product");
+        productid = s.next();
+        System.out.println("Enter the description of the product");
+        description = s.next();
+    }
+    void getPrice() {
+        System.out.println("Enter the quantity of product you wish to buy");
+        quantity = s.nextInt();
+    }
+
+    void buyProduct() {
+        if (quantity == 0) {
+            System.out.println("Invalid Input ");
+        } else {
+            System.out.println("The description of the product  :" + description.toLowerCase());
+            total = price * quantity;
+            System.out.println("The total amount to be paid " + total);
+        }
+    }
+}
+class ElectronicProduct extends Product {
+    int warranty,pc,n;
+    int flag=0;
+    void WarrantyPeriod() throws Exception {
+        System.out.println("ENTER YOUR CHOICE ");
+
+
+        if (flag == 1)
+        {
+
+            System.out.println("1.Warranty for Bulb is 6 months");
+        }
+         if (flag == 2)
+        {
+            System.out.println("1.Warranty for Bulb is 6 months");
+            System.out.println("2.Warranty for Fan is 24 months");
+        }
+        if (flag == 3)
+        {
+
+            System.out.println("1.Warranty for Bulb is 6 months");
+            System.out.println("2.Warranty for Fan is 24 months");
+            System.out.println("3.Warranty for Television is 24 months ");
+        }
+        n=s.nextInt();
+        if(n==1)
+        {
+            price = 50;
+        }
+        else if(n==2)
+        {
+            price = 10000;
+        }
+        else if(n==3)
+        {
+            price = 50000;
+        }
+        else
+        {
+            throw new Exception("This item does not exist");
+        }
+
+    }
+    void getPowerConsumption()
+    {
+        System.out.println("Enter the power consumption of the product you wish to buy");
+        pc=s.nextInt();
+    }
+    void PowerConsumption() throws Exception {
+
+        if(pc>100)
+        {
+            System.out.println("Low Power Consumption Light Bulb");
+            flag=1;
+        }
+        if(pc>200)
+        {
+            System.out.println("Low Power Consumption Fan");
+            flag=2;
+        }
+        if(pc>500)
+        {
+            System.out.println("Low Power Consumption Television");
+            flag=3;
+        }
+        if(flag==0)
+        {
+            throw new Exception("THIS ITEM DOES NOT EXIST");
+        }
+
+    }
+
+
+}
+class ClothingProduct extends Product
+{ int size;
+    int x=0;int ch=0;
+    void getSize()
+{
+    System.out.println("Enter the size of the product you wish to buy as (1,2,3) FOR (SMALL,MEDIUM,LARGE) ");
+    size=s.nextInt();
+}
+void Size()
+{
+
+    if(size==1)
+    {
+        x = 1;
+    }
+    if(size==2)
+    {
+        x = 2;
+    }
+    if(size==3)
+    {
+
+        x = 3;
+    }
+}
+void Material() throws Exception {
+
+    System.out.println("MATERIALS AVAILABKE FOR YOUR SIZE ARE :-");
+    if(x==1)
+    {
+        System.out.println("1.Cotton \n 2.Silk \n 3.Satin");
+        System.out.println("Enter the material");
+        ch=s.nextInt();
+
+    }
+    if(x==2)
+    {
+        System.out.println("1.Cotton \n 2.Silk ");
+        System.out.println("Enter the material");
+        ch=s.nextInt();
+
+    }
+    if(x==3)
+    {
+        System.out.println("1.Cotton \n 4. Nylon ");
+        System.out.println("Enter the material");
+        ch=s.nextInt();
+
+    }
+    System.out.println("Enter quantity ");
+    quantity=s.nextInt();
+    if(ch==1)
+    {
+        price=500;
+
+    }
+   else if(ch==2)
+    {
+        price=700;
+
+    }
+   else  if(ch==3)
+    {
+        price=1000;
+
+    }
+   else if(ch==4)
+    {
+        price=1000;
+
+    }
+    else 
+    {
+        throw new Exception("This item does not exist");
+    }
+}
+
+}
+class Main
+{
+    public static void main(String[] args) throws Exception
+    {
+        Scanner s = new Scanner(System.in);
+
+        for (int i = 0; i< 10; i++)
+        {
+            System.out.println("\n----------------------------------------------------------------------\n");
+            System.out.println("Enter 0 for Electronic product and 1 for Clothing product ");
+            int fg = s.nextInt();
+            if (fg == 0) {
+
+                ElectronicProduct e = new ElectronicProduct();
+
+                e.getDescription();
+                e.getPrice();
+                e.getPowerConsumption();
+                e.PowerConsumption();
+                e.WarrantyPeriod();
+                e.buyProduct();
+            } 
+            else if (fg == 1)
+            {
+                ClothingProduct c = new ClothingProduct();
+                c.getDescription();
+                c.getSize();
+                c.Size();
+                c.Material();
+                c.buyProduct();
+            } 
+            else
+            {
+                throw new Exception("Invalid Input");
+            }
+        }
+    }
+}
+
+
+
