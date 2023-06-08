@@ -1,0 +1,159 @@
+import java.util.Scanner;
+class Time
+{
+    int hr,min,p;
+    void inp()
+    {
+        Scanner obj=new Scanner(System.in);
+        System.out.println("ENTER HRS AND MINS :-");
+        hr=obj.nextInt();
+        min=obj.nextInt();
+    }
+
+
+
+    void add(Time o1, Time o2)
+    {
+        this.hr=o1.hr+o2.hr;
+        this.min=o1.min+o2.min;
+        if(this.min>60)
+        {
+            this.min=this.min-60;
+            this.hr++;
+        }
+        System.out.println("SUM OF TIME IS :- "+this.hr+"hrs:"+this.min+"mins");
+    }
+
+    void sub(Time o1,Time o2)
+    {
+        if(o1.hr>o2.hr)
+        {
+            this.hr=o1.hr-o2.hr;
+        }
+        if(o1.hr<o2.hr)
+        {
+            this.hr=o2.hr-o1.hr;
+        }
+        if(o1.min>o2.min)
+        {
+            this.min=o1.min-o2.min;
+        }
+        if(o1.min<o2.min)
+        {
+            this.min=o2.min-o1.min;
+        }
+
+        System.out.println("SUBTRACTION OF TIME IS :- "+this.hr+"hrs:"+this.min+"mins");
+    }
+}
+class GreatClock extends Time
+{
+    int sec,msec;
+    void inp()
+    {
+        Scanner o=new Scanner(System.in);
+        System.out.println("ENTER HOURS , MINUTES , SECONDS AND MILISECONDS :-");
+        hr=o.nextInt();
+        min=o.nextInt();
+        sec=o.nextInt();
+        msec=o.nextInt();
+    }
+
+    void add (GreatClock obje1,GreatClock obje2)
+    {
+        int hranswer=obje1.hr+obje2.hr;
+        int minanswer=obje1.min+obje2.min;
+        int secanswer=obje1.sec+obje2.sec;
+        int msecanswer=obje1.msec+obje2.msec;
+        if(msecanswer>1000)
+        {
+            msecanswer=msecanswer-1000;
+            secanswer++;
+        }
+        if(secanswer>60)
+        {
+            secanswer=secanswer-60;
+            minanswer++;
+        }
+        if(minanswer>60)
+        {
+            minanswer=minanswer-60;
+            hranswer++;
+        }
+        System.out.println("SUM OF TIME :- "+hranswer+"hrs:"+minanswer+"mins:"+secanswer+"secs:"+msecanswer+"msecs");
+    }
+    void sub(GreatClock obje1,GreatClock obje2)
+    {
+        int hranswer,minanswer,secanswer,msecanswer;
+        if(obje1.hr>obje2.hr)
+        {
+            hranswer=obje1.hr-obje2.hr;
+        }
+        else{
+            hranswer=obje2.hr-obje1.hr;
+        }
+        if(obje1.min>obje2.min)
+        {
+            minanswer=obje1.min-obje2.min;
+        }
+        else{
+            minanswer=obje2.min-obje1.min;
+        }
+        if(obje1.sec>obje2.sec)
+        {
+            secanswer=obje1.sec-obje2.sec;
+        }
+        else {
+            secanswer=obje2.sec-obje1.sec;
+        }
+        if(obje1.msec>obje2.msec) {
+            msecanswer = obje1.msec - obje2.msec;
+        }
+        else{
+            msecanswer = obje2.msec - obje1.msec;
+        }
+        System.out.println("SUBTRACTED TIME IS :- "+hranswer+"hrs:"+minanswer+"mins:"+secanswer+"sec:"+msecanswer+"msec");
+    }
+}
+ class Timezone extends Time{
+  System.out.println("Enter 0 for Us to India and 1 for India to US");
+    p=s.nextInt();
+    void convert(Timezone ob1)
+    { if (p==1)
+    {  System.out.println(" Original Time in India "+hr+" hrs :"+min+" mins Converted Time in US ="+(hr-9)+" hrs :"+(min-30)+" mins");
+    }
+        if (p==0)
+        { System.out.println(" Original Time in US"+hr+" hrs :"+min+"mins Converted Time in US ="+(hr+9)+" hrs :"+(min+30)+" mins");
+        }
+    }
+
+}
+
+
+class main
+{
+    public static void main(String[] args)
+    {
+        Time obz1=new Time();
+        Time obz2=new Time();
+        Time obz3=new Time();
+        obz1.inp();
+        obz2.inp();
+        obz3.add(obz1,obz2);
+        obz3.sub(obz1,obz2);
+        System.out.println("-------------------------"+"\nSECOND PART BEGINS HERE :-\n"+"-------------------------");
+        GreatClock op1=new GreatClock();
+        GreatClock op2=new GreatClock();
+        GreatClock op3=new GreatClock();
+        op1.inp();
+        op2.inp();
+        op3.add(op1,op2);
+        op3.sub(op1,op2);
+        System.out.println("-------------------------"+"\nTHIRD PART STARTS HERE :-\n"+"-------------------------");
+        Timezone ob1=new Timezone();
+        Timezone ob3=new Timezone();
+        ob1.inp();
+        ob3.convert(ob1);
+
+    }
+}
