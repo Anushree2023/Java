@@ -1,0 +1,106 @@
+import java.util.*;
+class   User
+{
+Scanner s=new Scanner(System.in);
+String username,password,mobilenumber ,gender,date;
+int isActive;
+void setdata()
+{
+System.out.println("Enter the deatailes of the user");
+System.out.println("Username");
+username=s.next();
+System.out.println("Passwrord");
+password=s.next();
+System.out.println("Mobile number");
+mobilenumber=s.next();
+System.out.println("Gender - (Enter F for female , M for male)");
+gender=s.next();
+System.out.println("Enter date as DDMMYYYY");
+date=s.next();
+System.out.println("Enter  0 if user is  active else enter 1");
+isActive=s.nextInt();
+}
+final  void printUser()
+{
+System.out.println("Username:"+username);
+System.out.println("Mobile number"+mobilenumber);
+System.out.println("Gender :"+gender);
+System.out.println("Date:"+date);
+{
+if(isActive==0)
+{System.out.println("Active user");
+}
+else if(isActive==1)
+{System.out.println("Not an Active user");
+}
+else
+{System.out.println("Invalid input ");
+}
+}
+}
+String getGender()
+{ 
+return gender;
+}
+LocalDate getCreatedDate()
+{
+return date;
+}
+class StandardUser
+{
+String alias,lastlogin,role;
+void setdata()
+{
+super.setadata();
+System.out.println("Enter alias");
+alias=s.next();
+System.out.println("Enter last login date as DDMMYYYY");
+lastlogin=s.next();
+System.out.println("Enter role");
+role=s.next();
+}
+void disp()
+{super.printUser();
+System.out.println("Alias :"+alias);
+System.out.println("Last Login Date:"+lastlogin);
+System.out.println("Role:"+role);
+}
+}
+class CustomUser
+{
+String email,seckey,manager;
+void setdata()
+{
+super.setadata();
+System.out.println("Enter email as email@gmail.com");
+email=s.next();
+System.out.println("Enter Security key ");
+seckey=s.next();
+System.out.println("Enter manager");
+manager=s.next();
+}
+void disp1()
+{
+super.printUser();
+System.out.println("Email:"+email);
+System.out.println("Security key :"+seckey);
+System.out.println("Manager :"+manager);
+}
+
+
+
+
+
+}
+
+
+class Main{
+public static void main (String[] args)
+{
+User a=new User();
+u.setdata();
+
+
+
+}
+}
