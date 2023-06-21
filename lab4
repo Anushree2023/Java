@@ -1,0 +1,80 @@
+import java.time.LocalDate;
+import java.util.ArrayList;
+
+class User {
+    String username;
+     String password;
+     String mobileNumber;
+     boolean isActive;
+     String gender;
+    LocalDate createdDate;
+
+     User(String username, String password, String mobileNumber, boolean isActive, String gender, LocalDate createdDate) {
+        this.username = username;
+        this.password = password;
+        this.mobileNumber = mobileNumber;
+        this.isActive = isActive;
+        this.gender = gender;
+        this.createdDate = createdDate;
+    }
+
+     final void printUser() {
+        System.out.println("Username: " + username);
+        System.out.println("Mobile Number: " + mobileNumber);
+        System.out.println("Active: " + isActive);
+        System.out.println("Gender: " + gender);
+        System.out.println("Created Date: " + createdDate);
+    }
+}
+
+class StandardUser extends User {
+     String alias;
+     LocalDate lastLogin;
+    String role;
+
+    StandardUser(String username, String password, String mobileNumber, boolean isActive, String gender, LocalDate createdDate,
+                        String alias, LocalDate lastLogin, String role) {
+        super(username, password, mobileNumber, isActive, gender, createdDate);
+        this.alias = alias;
+        this.lastLogin = lastLogin;
+        this.role = role;
+    }
+
+    void printUser1() {
+        super.printUser();
+        System.out.println("Alias: " + alias);
+        System.out.println("Last Login: " + lastLogin);
+        System.out.println("Role: " + role);
+    }
+}
+
+class CustomUser extends User {
+     String email;
+     String securityKey;
+     String manager;
+
+    public CustomUser(String username, String password, String mobileNumber, boolean isActive, String gender, LocalDate createdDate,
+                      String email, String securityKey, String manager) {
+        super(username, password, mobileNumber, isActive, gender, createdDate);
+        this.email = email;
+        this.securityKey = securityKey;
+        this.manager = manager;
+    }
+
+    void printUser2() {
+        super.printUser();
+        System.out.println("Email: " + email);
+        System.out.println("Security Key: " + securityKey);
+        System.out.println("Manager: " + manager);
+    }
+}
+
+public class Main {
+    int x;
+    public static void main(String[] args) {
+       
+      
+
+
+    }
+}
