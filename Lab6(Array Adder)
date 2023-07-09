@@ -1,0 +1,42 @@
+import java.util.*;
+class ArrayAdder<T extends Number> {
+    double addArray(T[] array) {
+        double sum = 0;
+        for (int i = 0; i < array.length; i++)
+            sum += array[i].doubleValue();
+        return sum;
+    }
+
+    void isEqual(double s1, double s2) throws UnmatchedSum {
+        if (s1 == s2)
+            System.out.println("The sum of two arrays is same. " + s1);
+        else
+            throw new UnmatchedSum("The Sum of two arrays is NOT same");
+
+    }
+}
+
+    class UnmatchedSum extends Exception {
+        public UnmatchedSum(String message) {
+            super(message);
+        }
+    }
+
+    class Main {
+        public static void main(String[] args) throws Exception {
+            Integer[] iarr1 = {10, 20, 30, 40, 50};
+            ArrayAdder<Integer> ob1 = new ArrayAdder<Integer>();
+            double sum1 = ob1.addArray(iarr1);
+            System.out.println("The sum is : " + sum1);
+
+            Double[] darr1 = {11.1, 2.0, 3.0, 4.0, 5.0};
+            ArrayAdder<Double> ob2 = new ArrayAdder<Double>();
+            double sum2 = ob2.addArray(darr1);
+            System.out.println("The sum is : " + sum2);
+            try {
+                ob1.isEqual(sum1, sum2);
+            } catch (UnmatchedSum e) {
+                System.out.println("Exception: " + e.getMessage());
+            }
+        }
+    }
