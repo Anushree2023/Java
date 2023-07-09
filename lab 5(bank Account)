@@ -1,0 +1,144 @@
+import java.util.*;
+ abstract class BankAccount{
+    Scanner s=new Scanner(System.in);
+    int accountnumber;
+    int depamt;
+
+    double interest,balance;
+    String ownername,aadharnumber;
+    int t;
+   abstract void openAccount();
+   abstract void closeAccount();
+   abstract void updateInterest();
+   abstract void depositAmount();
+
+}
+public interface Debitable
+{
+}
+class FixedDepositAccount extends BankAccount{
+
+int lockinPeriod;
+    @Override
+    void openAccount() {
+        System.out.println("Enter  account holder's Name");
+        ownername=s.next();
+        System.out.println("Enter  aadhar number");
+        aadharnumber=s.next();
+        System.out.println("Enter intial balance");
+        balance=s.nextDouble();
+        System.out.println("Enter Lockin Period ");
+        lockinPeriod=s.nextInt();
+        System.out.println("Account Created --------");
+        System.out.println( "Name-"+ownername);
+        System.out.println("Aadhar number"+aadharnumber);
+        System.out.println("Balance-"+balance);
+
+    }
+    void closeAccount()
+    {
+        this.balance=balance-(balance/20);
+        System.out.println("The Account is Closed");
+        System.out.println( "Name-"+ownername);
+        System.out.println("Aadhar number"+aadharnumber);
+        System.out.println("Balance-"+this.balance);
+    }
+    void depositAmount()
+    {
+        System.out.println("Enter deposit Amount");
+        depamt=s.nextInt();
+        this.balance =balance+depamt;
+        System.out.println("The new balance will be "+this.balance);
+    }
+    void updateInterest()
+    {
+        if (lockinPeriod>=1 && lockinPeriod<=2)
+        {
+           interest=balance*0.06*lockinPeriod;
+        }
+        else if (lockinPeriod>=2 && lockinPeriod<=5)
+        {
+            interest=balance*0.065*lockinPeriod;
+        }
+        else
+        {
+            interest=balance*0.07*lockinPeriod;
+        }
+        System.out.println("The  interest is "+interest);
+        System.out.println("Balance with interest "+interest+this.balance);
+    }
+}
+class SavingAccount  extends BankAccount implements Debitable{
+
+    @Override
+    void openAccount() {
+        System.out.println("Enter  account holder's Name");
+        ownername=s.next();
+        System.out.println("Enter  aadhar number");
+        aadharnumber=s.next();
+        System.out.println("Enter intial balance");
+        balance=s.nextDouble();
+        System.out.println("Account Created --------");
+        System.out.println(ownername);
+        System.out.println(aadharnumber);
+        System.out.println(balance);
+
+    }
+    void closeAccount()
+    {
+
+        System.out.println("The Account is Closed");
+
+    }
+
+    @Override
+    void updateInterest() {
+
+    }
+
+    @Override
+    void depositAmount() {
+        System.out.println("Enter deposit Amount");
+        depamt=s.nextInt();
+        this.balance =balance+depamt;
+
+    }
+}
+
+class Main{
+
+
+     public  static void main(String[] args)
+     {
+         Scanner s=new Scanner(System.in);
+         int x;
+         System.out.println("Enter 0 for fixed deposit account , 1 for Saving Account ");
+         x=s.nextInt();
+         Random random = new Random();
+         int num = random.nextInt(100000);
+         String formatted = String.format("%05d", num);
+         if (x==0)
+         { FixedDepositAccount f= new FixedDepositAccount();
+             f.openAccount();
+             f.updateInterest();
+             f.depositAmount();
+             f.closeAccount();
+
+         }
+         else if (x==1) {
+             SavingAccount a=new SavingAccount();
+             a.openAccount();
+             a.depositAmount();
+             a.updateInterest();
+             a.closeAccount();
+
+         }
+         else {
+             System.out.println("Invalid Input");
+         }
+
+         }
+
+     }
+
+
