@@ -1,0 +1,63 @@
+import java.util.*;
+import java.util.Scanner;
+abstract class Shapes{
+    Scanner s=new Scanner(System.in);
+    double area;
+    abstract void  calculateArea();
+
+}
+class Circle extends Shapes{
+
+    double radius;
+
+    @Override
+    void calculateArea() {
+        System.out.println("Enter radius of circle ");
+        radius=s.nextDouble();
+        area=3.14*radius*radius;
+        System.out.println("Area="+area);
+
+
+    }
+}
+class Triangle extends Shapes{
+    double side,height;
+
+    @Override
+    void calculateArea() {
+        System.out.println("Enter side and height of Triangle");
+        side=s.nextDouble();
+        height=s.nextDouble();
+ area=0.5*side*height;
+        System.out.println("Area="+area);
+
+    }
+}
+class Rectangle extends Shapes{
+    double length,breadth;
+    void calculateArea() {
+        System.out.println("Enter length and breadth of Rectangle");
+        length=s.nextDouble();
+        breadth=s.nextDouble();
+        area=length*breadth;
+        System.out.println("Area="+area);
+
+    }
+
+}
+class InvalidException extends Exception {
+
+}
+class Main{
+    public static void main(String[] args) {
+        Shapes s1=new Circle();
+        Shapes s2=new Triangle();
+        Shapes s3=new Rectangle();
+        s1.calculateArea();
+        s2.calculateArea();
+        s3.calculateArea();
+
+    }
+
+}
+
