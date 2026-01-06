@@ -1,0 +1,27 @@
+import  java.time.LocalTime;
+import  java.time.format.DateTimeFormatter;
+
+public class Main {
+    public static void sample()
+    {
+        System.out.println("hello");
+    }
+    void time()
+    {
+        long starttime=System.currentTimeMillis();
+        for(int i=0;i<100;i++)
+        {
+            int a=0;
+            a++;
+            System.out.println("This is  exec time calculation");
+        }
+        long endtime=System.currentTimeMillis();
+        System.out.println((endtime-starttime)/1000.0);
+    }
+    public static void main(String[] args) {
+           sample();
+           Main obj=new Main();
+           obj.time();
+
+        }
+    }
